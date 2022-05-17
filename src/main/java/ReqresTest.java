@@ -1,7 +1,7 @@
 import io.restassured.http.ContentType;
 import objects.*;
-import org.junit.Assert;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.*;
 
 import java.time.Clock;
 import java.util.List;
