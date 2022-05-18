@@ -121,4 +121,20 @@ public class ReqresTest {
                 .log().all().extract().body().jsonPath().getList("data", ResourceData.class);
         Assert.assertTrue(resourceDatas.stream().anyMatch(item -> item.getColor().equals("#7BC4C4")));
     }
+
+    @Test
+    public void unSuccessLogin() {
+        Specifications.installSpecifications(Specifications.requestSpec(URL), Specifications.respSpec400());
+        Register user = new Register("peter@klaven", "");
+        UnSuccessReg unSuccessReg = given()
+                .body(user)
+                .when()
+                .post("api/login")
+                .then()
+                .log()
+                .all()
+                .extract().as(UnSuccessReg.class);
+        Assert.assertNotNull(unSuccessReg);
+        Assert.assertEquals(unSuccessReg.getError(), "Missing password");
+    }
 }
