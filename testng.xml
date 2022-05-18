@@ -3,6 +3,7 @@
     <test name="Test">
         <classes>
             <class name="ReqresTest"/>
+            <class name="UnSuccessTest"/>
         </classes>
     </test>
 </suite>

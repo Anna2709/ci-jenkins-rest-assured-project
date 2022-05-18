@@ -17,6 +17,9 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <excludes>
+                        <exclude>UnSuccessTest.java</exclude>
+                    </excludes>
                 </configuration>
             </plugin>
         </plugins>

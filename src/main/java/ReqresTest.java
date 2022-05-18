@@ -45,22 +45,6 @@ public class ReqresTest {
     }
 
     @Test
-    public void unSuccessRegTest() {
-        Specifications.installSpecifications(Specifications.requestSpec(URL), Specifications.respSpec400());
-        Register user = new Register("sydney@fife", "");
-        UnSuccessReg unSuccessReg = given()
-                .body(user)
-                .when()
-                .post("api/register")
-                .then()
-                .log()
-                .all()
-                .extract().as(UnSuccessReg.class);
-        Assert.assertNotNull(unSuccessReg);
-        Assert.assertEquals(unSuccessReg.getError(), "Missing password");
-    }
-
-    @Test
     public void resourceYearOrderTest() {
         Specifications.installSpecifications(Specifications.requestSpec(URL), Specifications.respSpec200());
         List<ResourceData> resource = given()
@@ -120,21 +104,5 @@ public class ReqresTest {
                 .then()
                 .log().all().extract().body().jsonPath().getList("data", ResourceData.class);
         Assert.assertTrue(resourceDatas.stream().anyMatch(item -> item.getColor().equals("#7BC4C4")));
-    }
-
-    @Test
-    public void unSuccessLogin() {
-        Specifications.installSpecifications(Specifications.requestSpec(URL), Specifications.respSpec400());
-        Register user = new Register("peter@klaven", "");
-        UnSuccessReg unSuccessReg = given()
-                .body(user)
-                .when()
-                .post("api/login")
-                .then()
-                .log()
-                .all()
-                .extract().as(UnSuccessReg.class);
-        Assert.assertNotNull(unSuccessReg);
-        Assert.assertEquals(unSuccessReg.getError(), "Missing password");
     }
 }
