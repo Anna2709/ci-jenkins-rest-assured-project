@@ -20,7 +20,7 @@ public class ReqresTest {
                 .get("api/users?page=2")
                 .then().log().all().extract().body().jsonPath().getList("data", UserData.class);
 
-        users.stream().forEach(user -> Assert.assertTrue(user.getAvatar().contains(user.getId().toString())));
+        users.forEach(user -> Assert.assertTrue(user.getAvatar().contains(user.getId().toString())));
         Assert.assertTrue(users.stream().allMatch(user -> user.getEmail().endsWith("@reqres.in")));
     }
 
@@ -67,7 +67,7 @@ public class ReqresTest {
                 .when()
                 .get("api/unknown")
                 .then().log().all().extract().body().jsonPath().getList("data", ResourceData.class);
-        List<Integer> years = resource.stream().map(item -> item.getYear()).collect(Collectors.toList());
+        List<Integer> years = resource.stream().map(ResourceData::getYear).collect(Collectors.toList());
         List<Integer> sortedYears = years.stream().sorted().collect(Collectors.toList());
         Assert.assertEquals(years, sortedYears);
 
