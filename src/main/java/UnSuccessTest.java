@@ -26,7 +26,7 @@ public class UnSuccessTest {
     }
 
     @Test
-    public void unSuccessLoginTest1() {
+    public void unSuccessLoginTest() {
         Specifications.installSpecifications(Specifications.requestSpec(URL), Specifications.respSpec400());
         Register user = new Register("peter@klaven", "");
         UnSuccessReg unSuccessReg = given()
