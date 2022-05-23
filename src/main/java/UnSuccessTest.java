@@ -12,9 +12,8 @@ public class UnSuccessTest {
     @Test
     public void unSuccessRegTest() {
         Specifications.installSpecifications(Specifications.requestSpec(URL), Specifications.respSpec400());
-        Register user = new Register("sydney@fife", "");
         UnSuccessReg unSuccessReg = given()
-                .body(user)
+                .body(new Register("sydney@fife", ""))
                 .when()
                 .post("api/register")
                 .then()
@@ -28,9 +27,8 @@ public class UnSuccessTest {
     @Test
     public void unSuccessLoginTest() {
         Specifications.installSpecifications(Specifications.requestSpec(URL), Specifications.respSpec400());
-        Register user = new Register("peter@klaven", "");
         UnSuccessReg unSuccessReg = given()
-                .body(user)
+                .body(new Register("peter@klaven", ""))
                 .when()
                 .post("api/login")
                 .then()
