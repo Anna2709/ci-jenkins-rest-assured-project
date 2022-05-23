@@ -6,7 +6,7 @@ public class ResourceNotFoundTest {
     public final static String URL = "https://reqres.in/";
 
     @Test
-    public void checkAvatarAndIdTest() {
+    public void checkResourceNotFoundTest() {
         Specifications.installSpecifications(Specifications.requestSpec(URL), Specifications.respSpec404());
         given()
                 .when()
