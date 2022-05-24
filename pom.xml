@@ -15,11 +15,8 @@
                 <version>3.0.0-M6</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>testngFull.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <excludes>
-                        <exclude>UnSuccessTest.java</exclude>
-                    </excludes>
                 </configuration>
             </plugin>
         </plugins>
