@@ -22,11 +22,6 @@ public class ReqresTest {
 
         users.forEach(user -> Assert.assertTrue(user.getAvatar().contains(user.getId().toString())));
         Assert.assertTrue(users.stream().allMatch(user -> user.getEmail().endsWith("@reqres.in")));
-
- for(int i = 0; 1< users.size()+1; i++){
-     System.out.println(users.get(i).getEmail());
- }
-
     }
 
     @Test
